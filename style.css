@@ -1,75 +1,21 @@
-* {
-	margin: 0;
-	padding: 0;
-	background: #87cefa;
-} 
-
-.kite {
-	position: absolute;
-	width: 100px; 
-	height: 100px;
-	background: #ff0;
-	transform: rotate(45deg);
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	margin: auto;
-	animation: flying 5s ease-in-out infinite;
-	
-}
-.kite:before, .kite:after {
-  content: '';
-  position: absolute;
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #87CEEB;
 }
 
-.kite:before {
-	top: 50%; 
-	left: -20%;
-	width: 141%; 
-	border-top: 1px solid #000;
-	transform: rotate(45deg);
+#game-area {
+    width: 100%;
+    height: 100vh;
+    position: relative;
 }
 
-.kite:after {
-	top: 0; 
-	left: 0;
-	width: 100px; 
-	height: 100px;
-	border-top-left-radius: 100%;
-	border-left: 1px solid #000;
-	border-top: 1px solid #000;
-}
+#kite {
+    width: 100px;
+    height: 150px;
 
-.tail {
-	position: relative;
-	top: 95px; 
-	left: 85px;
-	width: 0; 
-	height: 0; 
-	border-left: 20px solid transparent;
-	border-right: 20px solid transparent;
-	border-bottom: 20px solid black;
-	transform: rotate(-45deg);
-	overflow: hidden;
-}
-
-
-@keyframes flying {
-	0% , 100% {
-		top: 0%;
-		left: 0%;
-	}
-	25% {
-		top: -20%;
-		left: 5%;
-	}
-	50% {
-		top: -15%;
-		left: 20%;
-	}
-	75% {
-		top: -10%;
-		left: 5%;
-	}
-}
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);}
