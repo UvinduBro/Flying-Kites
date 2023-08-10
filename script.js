@@ -16,7 +16,7 @@ document.addEventListener('keydown', (event) => {
     } else if (event.key === 'ArrowDown') {
         altitude -= 10;
     }
-    
+
     updateKitePosition();
 });
 
