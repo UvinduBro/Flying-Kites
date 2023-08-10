@@ -7,7 +7,7 @@ const downButton = document.getElementById('down');
 let angleForButton = 0;
 let altitudeForButton = 0;
 
-function updateKitePosition() {
+function updateKitePositionForButton() {
     kiteForButton.style.transform = `translateX(-50%) rotate(${angleForButton}deg) translateY(-${altitudeForButton}px)`;
 }
 
@@ -22,7 +22,7 @@ function handleButtonPress(direction) {
         altitudeForButton -= 10;
     }
 
-    updateKitePosition();
+    updateKitePositionForButton();
 }
 
 leftButton.addEventListener('click', () => handleButtonPress('left'));
