@@ -47,16 +47,64 @@ button:hover {
 }
 
 .floating {
-	animation-name: floating;
-	animation-duration: 3s;
-	animation-iteration-count: infinite;
-	animation-timing-function: ease-in-out;
-	margin-left: 30px;
-	margin-top: 5px;
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
 }
 
 @keyframes floating {
-	0% { transform: translate(0, 0px); }
-	50% { transform: translate(0, 15px); }
-	100% { transform: translate(0, -0px); }
+    0% {
+        transform: translate(0, 0px);
+    }
+
+    50% {
+        transform: translate(0, 15px);
+    }
+
+    100% {
+        transform: translate(0, -0px);
+    }
+}
+
+
+#selection {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border-radius: 10px;
+    width: 250px;
+    height: 320px;
+    top: 2%;
+    right: 1%;
+
+}
+
+.kites {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    margin: 8px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Hide buttons in dekstop view */
+
+@media (min-width:600px) {
+    #controls {
+        visibility: hidden;
+    }
 }
