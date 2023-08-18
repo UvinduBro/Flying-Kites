@@ -1,6 +1,7 @@
 import { Player } from './player.js';
 import { InputHandler } from './input.js';
-import { BackgroundKite } from './backgroundkites.js';
+import { kite1 } from './backgroundkites.js';
+
 
 window.addEventListener('load', () => {
     const canvas = document.getElementById('canvas1');
@@ -12,53 +13,61 @@ window.addEventListener('load', () => {
         constructor(width, height) {
             this.height = height;
             this.width = width;
-            this.player = new Player();
+            this.speed = 0;
+            this.maxSpeed = 6;
+            this.player = new Player(this);
             this.inputHandler = new InputHandler(this);
-            this.backgroundKites = []; // Array to hold background kites
-            // this.kyte = new BackgroundKite('images/kite1.png', this.width, this.height);
+            this.backgroundKites = [];
 
-            this.player.loadImage('images/kite1.png'); // Replace with the actual path
-            this.loadBackgroundKites(); // Load background kites
+            this.backgroundKiteTimer = 0;
+            this.backgroundKiteInterval = 1000;
+
+            this.player.loadImage('images/kite1.png'); // Replace with the path
         }
 
-        loadBackgroundKites() {
-            const numKites = 5; // Adjust the number of background kites
-            const kiteImagePath = 'images/kite1.png'; // Replace with the actual path
+        update(deltaTime) {
+            this.player.update(this.inputHandler.keys, deltaTime);
 
-            for (let i = 0; i < numKites; i++) {
-                const backgroundKite = new BackgroundKite(kiteImagePath, this);
-                this.backgroundKites.push(backgroundKite);
-
+            if (this.backgroundKiteTimer > this.backgroundKiteInterval) {
+                this.addbackgroundKite();
+                this.backgroundKiteTimer = 0;
+            } else {
+                this.backgroundKiteTimer += deltaTime;
             }
-        }
+            this.backgroundKites.forEach(backgroundKite => {
+                backgroundKite.update(deltaTime);
+            });
 
-        update() {
-            this.player.update(this.inputHandler.keys);
 
-            // Update background kites
-            for (const backgroundKite of this.backgroundKites) {
-                backgroundKite.update(this.player.altitude, this.player.angle, this.width, this.height);
-            }
+            this.backgroundKites = this.backgroundKites.filter(enemy => !enemy.markedForDeletion);
         }
 
         draw(ctx) {
             this.player.draw(ctx);
 
-            // Draw background kites
-            for (const backgroundKite of this.backgroundKites) {
+            this.backgroundKites.forEach(backgroundKite => {
                 backgroundKite.draw(ctx);
-            }
+            });
+
+        }
+        addbackgroundKite() {
+            if (Math.random() < 0.5)
+                this.backgroundKites.push(new kite1(this));
         }
     }
 
     const game = new Game(canvas.width, canvas.height);
-    function animate() {
+    let lastTime = 0;
+    function animate(timeStamp) {
+        const deltaTime = timeStamp - lastTime;
+        lastTime = timeStamp;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        game.update();
+        game.update(deltaTime);
         game.draw(ctx);
+        console.log(deltaTime);
         requestAnimationFrame(animate);
     }
-    animate();
+    animate(0);
 
 
 })

@@ -12,8 +12,8 @@ export class Player {
         this.kiteImage.src = imagePath;
     }
 
-    update(input) {
-        // Modify angleChange and altitudeChange based on input keys
+    update(input, deltaTime) {
+        // Modify angleChange and altitudeChange
         if (input.includes('ArrowLeft')) {
             this.angleChange = -5;
         } else if (input.includes('ArrowRight')) {
@@ -31,8 +31,8 @@ export class Player {
         }
 
         // Add a gentle jiggle animation
-        const jiggleAmount = 0.5; // Adjust the amount of jiggle
-        this.angle += Math.sin(Date.now() * 0.005) * jiggleAmount; // Adjust the speed of jiggle
+        const jiggleAmount = 0.5; // Adjust the amount
+        this.angle += Math.sin(Date.now() * 0.005) * jiggleAmount; // Adjust the speed
 
         // Update angle and altitude
         this.angle += this.angleChange;
@@ -52,10 +52,10 @@ export class Player {
         ctx.translate(centerX, centerY);
         ctx.rotate(radians);
 
-        // Calculate size scaling based on altitude (opposite of before)
-        const initialSize = 1; // Initial size when close
-        const maxSize = 0.5; // Larger size when higher
-        const size = initialSize - (initialSize - maxSize) * (this.altitude / 500); // Adjust 500 based on your canvas height
+        // Calculate size scaling based on altitude
+        const initialSize = 1; // Initial size
+        const maxSize = 0.5; // Larger size
+        const size = initialSize - (initialSize - maxSize) * (this.altitude / 500); // Adjust 500 based on canvas height
 
         ctx.drawImage(
             this.kiteImage,

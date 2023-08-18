@@ -20,6 +20,7 @@ body {
     font-family: 'Bebas Neue', sans-serif;
 }
 
-#kite {
+#kite1,
+#kite2 {
     display: none;
 }
