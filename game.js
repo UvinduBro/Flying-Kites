@@ -2,7 +2,6 @@ import { Player } from './player.js';
 import { InputHandler } from './input.js';
 import { kite1 } from './backgroundkites.js';
 
-
 window.addEventListener('load', () => {
     const canvas = document.getElementById('canvas1');
     const ctx = canvas.getContext('2d');
@@ -38,7 +37,6 @@ window.addEventListener('load', () => {
                 backgroundKite.update(deltaTime);
             });
 
-
             this.backgroundKites = this.backgroundKites.filter(enemy => !enemy.markedForDeletion);
         }
 
@@ -64,10 +62,7 @@ window.addEventListener('load', () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         game.update(deltaTime);
         game.draw(ctx);
-        console.log(deltaTime);
         requestAnimationFrame(animate);
     }
     animate(0);
-
-
-})
+});

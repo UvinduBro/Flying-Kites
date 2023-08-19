@@ -29,7 +29,6 @@ class Kite {
         );
     }
 
-
 }
 
 export class kite1 extends Kite {
@@ -38,7 +37,7 @@ export class kite1 extends Kite {
         this.game = game;
         this.width = 145;
         this.height = 200;
-        this.x = Math.random() * this.game.width * 0.5;
+        this.x = Math.random() * this.game.width;
         this.y = this.game.height + Math.random() * this.game.height * 0.5;
         this.speedX = 0;
         this.speedY = Math.random() + 1;
@@ -51,9 +50,9 @@ export class kite1 extends Kite {
         this.angle += this.va;
         this.x += Math.sin(this.angle);
 
-        
-        const initialSize = 0.5; // Initial size
-        const minSize = 1; // Smallest size
+        // Adjust kite size based on y position
+        const initialSize = 0.5; // Initial size when close
+        const minSize = 1; // Smallest size when high up
         const size = initialSize - (initialSize - minSize) * (this.y / this.game.height);
 
         this.width = 145 * size;
