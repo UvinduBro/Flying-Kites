@@ -50,7 +50,6 @@ export class kite1 extends Kite {
         this.angle += this.va;
         this.x += Math.sin(this.angle);
 
-        // Adjust kite size based on y position
         const initialSize = 0.5; // Initial size when close
         const minSize = 1; // Smallest size when high up
         const size = initialSize - (initialSize - minSize) * (this.y / this.game.height);

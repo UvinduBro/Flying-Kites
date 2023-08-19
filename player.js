@@ -6,6 +6,10 @@ export class Player {
         this.altitudeChange = 0;
         this.kiteImage = new Image();
         this.game = game;
+
+        this.touchStartPosition = { x: 0, y: 0 };
+        this.touchCurrentPosition = { x: 0, y: 0 };
+
     }
 
     loadImage(imagePath) {
@@ -13,20 +17,33 @@ export class Player {
     }
 
     update(input, deltaTime) {
-        if (input.includes('ArrowLeft')) {
-            this.angleChange = -5;
-        } else if (input.includes('ArrowRight')) {
-            this.angleChange = 5;
-        } else {
-            this.angleChange = 0;
+        if (this.game.touchJoystickActive) {
+        
+            this.angleChange = this.game.angleDegrees;
+            this.altitudeChange = this.game.distance;
+            console.log("gg");
         }
 
-        if (input.includes('ArrowUp')) {
-            this.altitudeChange = 5;
-        } else if (input.includes('ArrowDown')) {
-            this.altitudeChange = -5;
-        } else {
-            this.altitudeChange = 0;
+
+
+
+
+        else {
+            if (input.includes('ArrowLeft')) {
+                this.angleChange = -5;
+            } else if (input.includes('ArrowRight')) {
+                this.angleChange = 5;
+            } else {
+                this.angleChange = 0;
+            }
+
+            if (input.includes('ArrowUp')) {
+                this.altitudeChange = 5;
+            } else if (input.includes('ArrowDown')) {
+                this.altitudeChange = -5;
+            } else {
+                this.altitudeChange = 0;
+            }
         }
 
         const jiggleAmount = 0.5;

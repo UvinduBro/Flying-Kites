@@ -65,4 +65,57 @@ window.addEventListener('load', () => {
         requestAnimationFrame(animate);
     }
     animate(0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+    let isJoystickPressed = false;
+    const joystick = document.getElementById('joystick');
+    const joystickHandle = document.getElementById('joystick-handle');
+
+
+    joystick.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        isJoystickPressed = true;
+    });
+
+    joystick.addEventListener('touchmove', (e) => {
+        if (isJoystickPressed) {
+            const containerRect = joystick.getBoundingClientRect();
+            const centerX = containerRect.left + containerRect.width / 2;
+            const centerY = containerRect.top + containerRect.height / 2;
+
+            const touch = e.touches[0]; 
+            const angle = Math.atan2(touch.clientY - centerY, touch.clientX - centerX);
+            const distance = Math.min(containerRect.width / 2, Math.hypot(touch.clientY - centerY, touch.clientX - centerX));
+
+            
+            const angleDegrees = (angle * 180) / Math.PI;
+ 
+            joystickHandle.style.transform = `translate(-50%, -50%) translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px)`;
+        }
+    });
+
+    joystick.addEventListener('touchend', () => {
+        isJoystickPressed = false;
+
+        joystickHandle.style.transform = 'translate(-50%, -50%)';
+    });
+
 });
