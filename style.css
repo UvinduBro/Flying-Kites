@@ -1,14 +1,14 @@
 body {
+    background-color: #000000;
+    background-image: linear-gradient(360deg, #000000 0%, #b82e1f 74%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 900;
     margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #87CEEB;
-}
-
-#game-area {
-    width: 100%;
-    height: 100vh;
-    position: relative;
 }
 
 #kite {
@@ -21,30 +21,7 @@ body {
     transform: translateX(-50%);
 }
 
-#controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-}
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 0 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
 
 .floating {
     animation-name: floating;
@@ -70,18 +47,6 @@ button:hover {
 }
 
 
-#selection {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border-radius: 10px;
-    width: 250px;
-    height: 320px;
-    top: 2%;
-    right: 1%;
-
-}
-
 .kites {
     display: inline-block;
     background-color: rgba(255, 255, 255, 0.4);
@@ -94,17 +59,223 @@ button:hover {
 
 
 
+p {
+    position: absolute;
+    font-size: 5vw;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    right: 5%;
+    top: 0;
+    margin: 0;
+}
+
+.fancy {
+    position: relative;
+    white-space: nowrap;
+}
+
+.fancy:after {
+    --deco-height: 0.3125em;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(var(--deco-height) * -0.625);
+    height: var(--deco-height);
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='%2300FDCF' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+    background-size: auto 100%;
+    background-repeat: round;
+    background-position: 0em;
+}
 
 
 
 
 
+.btn-84,
+.btn-84 *,
+.btn-84 :after,
+.btn-84 :before,
+.btn-84:after,
+.btn-84:before {
+    border: 0 solid;
+    box-sizing: border-box;
+}
 
+.btn-84 {
+    -webkit-tap-highlight-color: transparent;
+    appearance: button;
+    background-color: #000;
+    background-image: none;
+    color: #fff;
+    cursor: pointer;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 100%;
+    line-height: 1.5;
+    margin: 0;
+    mask-image: -webkit-radial-gradient(#000, #fff);
+    padding: 0;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
 
-/* Hide buttons in dekstop view */
+.btn-84:disabled {
+    cursor: default;
+}
 
-@media (min-width:600px) {
-    #controls {
-        visibility: hidden;
+.btn-84:-moz-focusring {
+    outline: auto;
+}
+
+.btn-84 svg {
+    display: block;
+}
+
+.btn-84 [hidden] {
+    display: none;
+}
+
+.btn-84 {
+    background: #fff;
+    box-sizing: border-box;
+    color: #000;
+    display: block;
+    font-weight: 900;
+    mask-image: none;
+    padding: 1.2rem 3rem;
+    perspective: 800px;
+    position: relative;
+    text-transform: uppercase;
+    transform: rotateX(8deg);
+    transform-style: preserve-3d;
+    transition: transform 0.2s;
+    width: 300px;
+    height: 100px;
+    font-size: 30px;
+}
+
+.btn-84:hover {
+    transform: rotateX(25deg);
+}
+
+.btn-84:after,
+.btn-84:before {
+    background: #eee;
+    content: "";
+    display: block;
+    height: 20%;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    transform: rotateX(-90deg);
+    transform-origin: 0 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.btn-84:after {
+    background: #ccc;
+    z-index: -2;
+}
+
+.btn-84:hover:before {
+    -webkit-animation: progress-bar 1.2s forwards;
+    animation: progress-bar 1.2s forwards;
+}
+
+@-webkit-keyframes progress-bar {
+    0% {
+        opacity: 1;
+        width: 0;
     }
+
+    10% {
+        opacity: 1;
+        width: 15%;
+    }
+
+    25% {
+        opacity: 1;
+        width: 25%;
+    }
+
+    40% {
+        opacity: 1;
+        width: 35%;
+    }
+
+    55% {
+        opacity: 1;
+        width: 75%;
+    }
+
+    60% {
+        opacity: 1;
+        width: 100%;
+    }
+
+    to {
+        opacity: 0;
+        width: 100%;
+    }
+}
+
+@keyframes progress-bar {
+    0% {
+        opacity: 1;
+        width: 0;
+    }
+
+    10% {
+        opacity: 1;
+        width: 15%;
+    }
+
+    25% {
+        opacity: 1;
+        width: 25%;
+    }
+
+    40% {
+        opacity: 1;
+        width: 35%;
+    }
+
+    55% {
+        opacity: 1;
+        width: 75%;
+    }
+
+    60% {
+        opacity: 1;
+        width: 100%;
+    }
+
+    to {
+        opacity: 0;
+        width: 100%;
+    }
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+
+.kite {
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    z-index: -1;
+    width: 500px;
 }
