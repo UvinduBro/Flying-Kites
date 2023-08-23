@@ -2,44 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flying Kites Sri Lanka</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
+    <title>Flying Kites Sri Lanka</title>
   </head>
   <body>
-    <div id="game-area">
-      <div id="kite">
-        <img id="kiteImg" src="./images/kite1.png" alt="" class="floating" />
-      </div>
+    <p>
+      Kites <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fancy">Lanka</span>
+    </p>
+    <img class="background" src="images/background12.png" />
+    <!-- <img class="background" src="images/background.png" width="720px" /> -->
+    <img class="kite floating" src="images/kitefloating.png" alt="" />
+
+    <div class="button-container">
+      <a href="./game.html"> <button class="btn-84">Play</button></a>
+      <a href=""> <button class="btn-84">Customize</button></a>
     </div>
-
-    <!--- Kites Selection --->
-
-    <!-- TODO: Add selction animations -->
-
-    <div id="selection">
-      <div class="kites">
-        <img id="kite1" src="./images/kite1.png" width="100px" />
-      </div>
-      <div class="kites">
-        <img id="kite2" src="./images/kite2.png" width="100px" />
-      </div>
-      <div class="kites">
-        <img id="kite3" src="./images/kite3.png" width="100px" />
-      </div>
-    </div>
-
-    <!--- Controllers Area --->
-
-    <div id="controls">
-      <button id="left">Left</button>
-      <button id="right">Right</button>
-      <button id="up">Up</button>
-      <button id="down">Down</button>
-    </div>
-
-    <script src="script.js"></script>
-    <script src="controller.js"></script>
   </body>
 </html>
