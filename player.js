@@ -18,7 +18,7 @@ export class Player {
 
     update(input, deltaTime) {
         if (this.game.touchJoystickActive) {
-        
+
             this.angleChange = this.game.angleDegrees;
             this.altitudeChange = this.game.distance;
             console.log("gg");
@@ -46,10 +46,24 @@ export class Player {
             }
         }
 
+
+
         const jiggleAmount = 0.5;
         this.angle += Math.sin(Date.now() * 0.005) * jiggleAmount;
         this.angle += this.angleChange;
         this.altitude += this.altitudeChange;
+
+        const initialSize = 1;
+        const maxSize = 0.55;
+        this.size = initialSize - (initialSize - maxSize) * (this.altitude / 550);
+        this.x = -this.kiteImage.width * this.size / 1.9;
+        this.y = -this.kiteImage.height * this.size / 1.9;
+
+        // if (this.x < 0) this.x = 0;
+        // if (this.x > this.game.width - this.width) this.x = this.game.width - this.width;
+
+        // if (this.y < 0) this.y = 0;
+        // if (this.y > this.game.height - this.height) this.y = this.game.height - this.height;
     }
 
     draw(ctx) {
@@ -64,16 +78,14 @@ export class Player {
         ctx.translate(centerX, centerY);
         ctx.rotate(radians);
 
-        const initialSize = 1;
-        const maxSize = 0.5;
-        const size = initialSize - (initialSize - maxSize) * (this.altitude / 550);
+
 
         ctx.drawImage(
             this.kiteImage,
-            -this.kiteImage.width * size / 1.9,
-            -this.kiteImage.height * size / 1.9,
-            this.kiteImage.width * size,
-            this.kiteImage.height * size
+            this.x,
+            this.y,
+            this.kiteImage.width * this.size,
+            this.kiteImage.height * this.size
         );
 
         ctx.restore();
