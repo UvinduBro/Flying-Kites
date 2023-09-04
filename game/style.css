@@ -78,16 +78,12 @@ body {
 
 .car {
     position: absolute;
-    height: 90px;
+    height: 110px;
     width: 90px;
-    border-radius: 50px;
-    /* box-shadow: 0px 1px 8px 0px black; */
+    border-radius: 200px;
+    box-shadow: 0px 1px 8px 0px black;
 }
 
-#kite {
-
-    left: 60%;
-}
 
 #car {
     bottom: 2%;
@@ -98,29 +94,33 @@ body {
 #car_1 {
     top: -720px;
     left: 60%;
-    height: 60px;
-    background-color: rgb(199, 171, 120);
+    /* background-color: rgb(199, 171, 120); */
+}
+
+#kite_1 {
+    transform: scaleY(-1);
+    transform-origin: center;
 }
 
 #car_2 {
     top: -650px;
     left: 30%;
-    height: 70px;
-    background-color: #26c5ff;
+    /* height: 70px;
+    background-color: #26c5ff; */
 }
 
 #car_3 {
     top: -550px;
     left: 37%;
-    height: 80px;
-    background-color: pink;
+    /* height: 80px;
+    background-color: pink; */
 }
 
 #car_4 {
     top: -450px;
     left: 78%;
-    height: 65px;
-    background-color: aquamarine;
+    /* height: 65px;
+    background-color: aquamarine; */
 }
 
 #car_5 {
