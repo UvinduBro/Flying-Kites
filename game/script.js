@@ -1,6 +1,6 @@
 
 
-$(function() {
+$(function () {
 
     var anim_id;
 
@@ -16,8 +16,8 @@ $(function() {
     var restart_div = $('#restart_div');
     var restart_btn = $('#restart');
     var score = $('#score');
-    // var highscore = $('#highscore');    
-    
+    // var highscore = $('#highscore');     
+
 
     //saving some initial setup
     var container_left = parseInt(container.css('left'));
@@ -42,7 +42,7 @@ $(function() {
     /* ------------------------------GAME CODE STARTS HERE------------------------------------------- */
 
     /* Move the cars */
-    $(document).on('keydown', function(e) {
+    $(document).on('keydown', function (e) {
         if (game_over === false) {
             var key = e.keyCode;
             if (key === 37 && move_left === false) {
@@ -57,7 +57,7 @@ $(function() {
         }
     });
 
-    $(document).on('keyup', function(e) {
+    $(document).on('keyup', function (e) {
         if (game_over === false) {
             var key = e.keyCode;
             if (key === 37) {
@@ -122,7 +122,7 @@ $(function() {
             speed = speed + 1.5;
             line_speed++;
         }
-        
+
 
         car_down(car_1);
         car_down(car_2);
@@ -153,7 +153,7 @@ $(function() {
         line.css('top', line_current_top + line_speed);
     }
 
-    restart_btn.click(function() {
+    restart_btn.click(function () {
         location.reload();
     });
 
