@@ -10,9 +10,9 @@ $(function () {
     var car_1 = $('#car_1');
     var car_2 = $('#car_2');
     var car_3 = $('#car_3');
-    var line_1 = $('#line_1');
-    var line_2 = $('#line_2');
-    var line_3 = $('#line_3');
+    // var line_1 = $('#line_1');
+    // var line_2 = $('#line_2');
+    // var line_3 = $('#line_3');
     var restart_div = $('#restart_div');
     var restart_btn = $('#restart');
     var score = $('#score');
@@ -128,9 +128,9 @@ $(function () {
         car_down(car_2);
         car_down(car_3);
 
-        line_down(line_1);
-        line_down(line_2);
-        line_down(line_3);
+        // line_down(line_1);
+        // line_down(line_2);
+        // line_down(line_3);
 
         anim_id = requestAnimationFrame(repeat);
     }
