@@ -10,6 +10,6 @@ Virtual Kite Flying Simulator
 
 ## Contributors
 
-<a href="https://github.com/UvinduBro/kalpana/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=UvinduBro/kalpana" />
+<a href="https://github.com/UvinduBro/Flying-Kites/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=UvinduBro/Flying-Kites" />
 </a>
