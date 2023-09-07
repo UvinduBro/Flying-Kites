@@ -6,6 +6,50 @@
     <title>RACING CAR</title>
     <link href="style.css" rel="stylesheet" /> </head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<!-- body -->
+
+<style>
+    /* Styling for the controller buttons */
+.controller-button {
+    background-color: #3498db;
+    border: none;
+    color: white;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.controller-button:hover {
+    background-color: #2980b9;
+}
+
+/* Center the controller buttons horizontally */
+#controller {
+    text-align: center;
+}
+
+/* Adjust spacing for the controller buttons */
+.controller-button:first-child {
+    margin-left: 0;
+}
+
+/* Add some shadow to the buttons */
+.controller-button {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style Font Awesome icons inside the buttons */
+.controller-button i {
+    font-size: 24px;
+}
+
+</style>
 <body>
         <video autoplay muted loop id="myVideo">
                 <source src="./assets/clouds.mp4" type="video/mp4">
@@ -111,6 +155,15 @@
         </div>
     </div>
    
+
+        <!-- Add controller buttons -->
+        <div id="controller">
+            <button id="left-button" class="controller-button"><i class="fa fa-arrow-left"></i></button>
+            <button id="right-button" class="controller-button"><i class="fa fa-arrow-right"></i></button>
+            <button id="up-button" class="controller-button"><i class="fa fa-arrow-up"></i></button>
+            <button id="down-button" class="controller-button"><i class="fa fa-arrow-down"></i></button>
+        </div>
+    
 
     <script src="jquery.min.js"></script>
     <script src="script.js"></script>
