@@ -6,3 +6,10 @@ Virtual Kite Flying Simulator
 - [x] Button Controllers [@Lakshitha](https://github.com/LAKSHIBRO)
 - [x] Kites Selection [@Lakshitha](https://github.com/LAKSHIBRO)
 - [ ] Scene Selection
+
+
+## Contributors
+
+<a href="https://github.com/UvinduBro/Flying-Kites/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=UvinduBro/Flying-Kites" />
+</a>
