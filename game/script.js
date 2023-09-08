@@ -16,7 +16,15 @@ $(function () {
     var restart_div = $('#restart_div');
     var restart_btn = $('#restart');
     var score = $('#score');
-    // var highscore = $('#highscore');     
+    // var highscore = $('#highscore');  
+
+
+    //Buttons
+
+    const left_button = document.getElementById("left-button");
+    const right_button = document.getElementById("right-button");
+    const up_button = document.getElementById("up-button");
+    const down_button = document.getElementById("down-button");
 
 
     //saving some initial setup
@@ -40,6 +48,26 @@ $(function () {
     var move_down = false;
 
     /* ------------------------------GAME CODE STARTS HERE------------------------------------------- */
+
+    left_button.addEventListener('click', () => {
+        move_left = requestAnimationFrame(left);
+    });
+
+    right_button.addEventListener('click', () => {
+        move_right = requestAnimationFrame(right);
+    });
+
+    up_button.addEventListener('click', () => {
+        move_up = requestAnimationFrame(up);
+    });
+
+    down_button.addEventListener('click', () => {
+        move_down = requestAnimationFrame(down);
+    });
+
+
+
+
 
     /* Move the cars */
     $(document).on('keydown', function (e) {
