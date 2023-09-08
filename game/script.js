@@ -18,6 +18,7 @@ $(function () {
     var score = $('#score');
     // var highscore = $('#highscore');  
 
+    var highscore = document.getElementById('highscore');
 
     //Buttons
 
@@ -186,10 +187,9 @@ $(function () {
     });
 
     function stop_the_game() {
-        // if(parseInt(highscore.text) < parseInt(score.text))           // not working 
-        // {
-        //     highscore.text(parseInt(score.text));
-        // }
+        if (parseInt(highscore.innerHTML) < parseInt(score.text())) {
+            highscore.innerHTML = score.text();
+        }
         game_over = true;
         cancelAnimationFrame(anim_id);
         cancelAnimationFrame(move_right);
