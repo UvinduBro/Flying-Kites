@@ -1,176 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- head -->
-<head>
-    <meta charset="UTF-8">
+  <!-- head -->
+  <head>
+    <meta charset="UTF-8" />
     <title>RACING CAR</title>
-    <link href="style.css" rel="stylesheet" /> </head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="kite.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
 
+  <!-- body -->
 
-<!-- body -->
-
-<style>
+  <style>
     /* Styling for the controller buttons */
-.controller-button {
-    background-color: #3498db;
-    border: none;
-    color: white;
-    font-size: 24px;
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    .controller-button {
+      background-color: #3498db;
+      border: none;
+      color: white;
+      font-size: 24px;
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-.controller-button:hover {
-    background-color: #2980b9;
-}
+    .controller-button:hover {
+      background-color: #2980b9;
+    }
 
-/* Center the controller buttons horizontally */
-#controller {
-    text-align: center;
-}
+    /* Center the controller buttons horizontally */
+    #controller {
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
 
-/* Adjust spacing for the controller buttons */
-.controller-button:first-child {
-    margin-left: 0;
-}
+    /* Adjust spacing for the controller buttons */
+    .controller-button:first-child {
+      margin-left: 0;
+    }
 
-/* Add some shadow to the buttons */
-.controller-button {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+    /* Add some shadow to the buttons */
+    .controller-button {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-/* Style Font Awesome icons inside the buttons */
-.controller-button i {
-    font-size: 24px;
-}
-
-</style>
-<body>
-        <video autoplay muted loop id="myVideo">
+    /* Style Font Awesome icons inside the buttons */
+    .controller-button i {
+      font-size: 24px;
+    }
+  </style>
+  <body>
+    <!-- <video autoplay muted loop id="myVideo">
                 <source src="./assets/clouds.mp4" type="video/mp4">
-        </video>
-    
-    <div id="score_div">
-        Score: <span id="score">0</span>
+        </video> -->
+    <div id="score_div">Score: <span id="score">0</span></div>
+
+    <div class="help">Use Right, Left, Up & Down arrow keys.</div>
+
+    <canvas id="canvas"></canvas>
+    <div id="restart_div">
+      <h2 id="highscore">0</h2>
+      <button id="restart">
+        Restart
+        <br />
+        <small class="small_text">(Press Enter to Restart)</small>
+      </button>
     </div>
-    
-    <div class="help" >
-            Use Right, Left, Up & Down arrow keys.
+
+    <!-- Add controller buttons -->
+    <div id="controller">
+      <button id="left-button" class="controller-button">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <button id="right-button" class="controller-button">
+        <i class="fa fa-arrow-right"></i>
+      </button>
+      <button id="up-button" class="controller-button">
+        <i class="fa fa-arrow-up"></i>
+      </button>
+      <button id="down-button" class="controller-button">
+        <i class="fa fa-arrow-down"></i>
+      </button>
     </div>
-
-
-    <div id="container"> 
-            
-        
-        <div id="car" class="car">
-            
-
-            <img  src="assets/images/kite.png" alt="" width="90px">
-
-
-
-        </div>
-        <div id="car_1" class="car" >
-
-
-            <img id="kite" src="assets/images/kite1.png" alt="" ">
-
-
-        </div>
-        <div id="car_2" class="car">
-            
-            
-            <img id="kite" src="assets/images/kite2.png" alt="" ">
-
-
-        </div>
-        <div id="car_3" class="car">
-            
-            <img id="kite" src="assets/images/kite3.png" alt="" ">
-
-
-
-        </div>
-        <!-- <div id="car_4" class="car" >
-            <div class="f_glass"></div>
-            <div class="b_glass"></div>
-            <div class="f_light_l"></div>
-            <div class="f_light_r"></div>
-            <div class="f_tyre_l"></div>
-            <div class="f_tyre_r"></div>
-            <div class="b_tyre_l"></div>
-            <div class="b_tyre_r"></div>
-        </div>
-        <div id="car_5" class="car" >
-            <div class="f_glass"></div>
-            <div class="b_glass"></div>
-            <div class="f_light_l"></div>
-            <div class="f_light_r"></div>
-            <div class="f_tyre_l"></div>
-            <div class="f_tyre_r"></div>
-            <div class="b_tyre_l"></div>
-            <div class="b_tyre_r"></div>
-        </div>
-        <div id="car_6" class="car" >
-            <div class="f_glass"></div>
-            <div class="b_glass"></div>
-            <div class="f_light_l"></div>
-            <div class="f_light_r"></div>
-            <div class="f_tyre_l"></div>
-            <div class="f_tyre_r"></div>
-            <div class="b_tyre_l"></div>
-            <div class="b_tyre_r"></div>
-        </div>
-        <div id="car_7" class="car" >
-            <div class="f_glass"></div>
-            <div class="b_glass"></div>
-            <div class="f_light_l"></div>
-            <div class="f_light_r"></div>
-            <div class="f_tyre_l"></div>
-            <div class="f_tyre_r"></div>
-            <div class="b_tyre_l"></div>
-            <div class="b_tyre_r"></div>
-        </div> -->
-        <!-- <div id="car_8" class="car" >
-            <div class="f_glass"></div>
-            <div class="b_glass"></div>
-            <div class="f_light_l"></div>
-            <div class="f_light_r"></div>
-            <div class="f_tyre_l"></div>
-            <div class="f_tyre_r"></div>
-            <div class="b_tyre_l"></div>
-            <div class="b_tyre_r"></div>
-        </div> -->
-        <div id="restart_div">
-            <h2 id="highscore">0</h2>
-            <button id="restart">    
-              Restart
-                <br>
-                <small class="small_text">(Press Enter to Restart)</small>
-            </button>
-        </div>
-    </div>
-   
-
-        <!-- Add controller buttons -->
-        <div id="controller">
-            <button id="left-button" class="controller-button"><i class="fa fa-arrow-left"></i></button>
-            <button id="right-button" class="controller-button"><i class="fa fa-arrow-right"></i></button>
-            <button id="up-button" class="controller-button"><i class="fa fa-arrow-up"></i></button>
-            <button id="down-button" class="controller-button"><i class="fa fa-arrow-down"></i></button>
-        </div>
-    
 
     <script src="jquery.min.js"></script>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
-
 
 <!-- -------------------------- Ends Here--------------------------------- -->
