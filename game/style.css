@@ -4,11 +4,16 @@ body {
     margin: 0;
     /*background-color: #90AFC5;*/
     font-family: sans-serif;
+    overflow: hidden;
 }
 
 /* <----------- this is container of road ------------------> */
 
+#kite {
+    display: none;
 }
+
+#background {}
 
 #restart_div {
     position: absolute;

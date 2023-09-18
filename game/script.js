@@ -3,8 +3,7 @@ const ctx = canvas.getContext('2d');
 const width = canvas.width = window.innerWidth;
 const height = canvas.height = window.innerHeight;
 
-const player = new Image();
-player.src = 'kite.png';
+const player = document.getElementById('kite')
 
 let playerWidth = player.width * 0.15;
 let playerHeight = player.height * 0.15;
